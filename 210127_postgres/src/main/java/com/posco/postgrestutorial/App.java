@@ -72,12 +72,12 @@ public class App{
      */
     public void getFilms(String pattern, int releaseYear) {
 
-        String SQL = "SELECT * FROM get_film (?, ?)";
+        String SQL = "SELECT * FROM get_film (?)";
         try (Connection conn = this.connect();
                 PreparedStatement pstmt = conn.prepareStatement(SQL)) {
 
             pstmt.setString(1,pattern);
-            pstmt.setInt(2,releaseYear);
+            // pstmt.setInt(2,releaseYear);
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
